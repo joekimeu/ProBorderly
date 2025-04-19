@@ -1,0 +1,23 @@
+{
+  "name": "africonnect-backend",
+  "version": "1.0.0",
+  "description": "Backend for AfriConnect cross-border professional services platform",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "NODE_ENV=test node src/test.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "africa",
+    "professional-services",
+    "blockchain",
+    "compliance",
+    "cross-border"
+  ],
+  "author": "ProBorderly",
+  "license": "MIT"
+}

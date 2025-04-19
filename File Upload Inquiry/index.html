@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfriConnect - Cross-Border Professional Services Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            --success-color: #198754;
+            --info-color: #0dcaf0;
+            --warning-color: #fd7e14;
+            --danger-color: #dc3545;
+            --african-accent: #e67e22;
+            --african-secondary: #27ae60;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+            position: relative;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--african-accent);
+        }
+        
+        .feature-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--african-accent);
+            margin-bottom: 20px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--african-secondary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--african-accent);
+            border: 2px solid var(--african-secondary);
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            margin: 0 10px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--african-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--african-accent);
+            border-color: var(--african-accent);
+        }
+        
+        .btn-primary:hover {
+            background-color: #d35400;
+            border-color: #d35400;
+        }
+        
+        .btn-outline-primary {
+            color: var(--african-accent);
+            border-color: var(--african-accent);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--african-accent);
+            border-color: var(--african-accent);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-title {
+            position: relative;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--african-accent);
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--african-accent);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--african-accent);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--african-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        .architecture-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+            
+            .feature-card {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">AfriConnect</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#architecture">Architecture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#roadmap">Roadmap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="display-4 fw-bold mb-4">Connecting African Professionals Across Borders</h1>
+                    <p class="lead mb-5">A full-stack digital platform using smart contracts and AI-powered compliance tools to enable seamless cross-border professional services throughout Africa.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#features" class="btn btn-primary btn-lg px-4 py-2">Explore Features</a>
+                        <a href="#about" class="btn btn-outline-light btn-lg px-4 py-2">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 my-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">About The Platform</h2>
+                    <p class="lead">AfriConnect is a comprehensive digital platform designed to overcome the barriers faced by African professionals when providing services across national borders.</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="mb-4">Market Need</h3>
+                    <p>African professionals face significant barriers when attempting to provide services across national borders within the continent:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Regulatory Complexity:</strong> Navigating diverse legal, tax, and professional regulations across 54 African countries</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Payment Friction:</strong> Dealing with multiple currencies, high transaction costs, and limited cross-border payment options</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Trust Deficit:</strong> Lack of standardized verification systems for professional credentials and service quality</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Language Barriers:</strong> Operating across regions with different official languages and legal traditions</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Connectivity Limitations:</strong> Unreliable internet access and infrastructure in many regions</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Our Solution</h3>
+                    <p>AfriConnect addresses these challenges through an integrated platform that combines:</p>
+                    <div class="d-flex mb-4">
+                        <div class="me-3">
+                            <i class="bi bi-robot fs-1 text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>AI-Powered Compliance</h5>
+                            <p>Real-time interpretation of regulations across African jurisdictions, continuously updated from official sources.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-3">
+                            <i class="bi bi-link-45deg fs-1 text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Blockchain Smart Contracts</h5>
+                            <p>Secure, transparent agreements with built-in escrow and dispute resolution mechanisms.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-3">
+                            <i class="bi bi-currency-exchange fs-1 text-primary"></i>
+                        </div>
+                        <div>
+                            <h5>Seamless Payments</h5>
+                            <p>Multi-currency support with optimized FX and integration with popular African payment systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 my-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Core Features</h2>
+                    <p class="lead">Our platform combines cutting-edge technologies to create a seamless experience for cross-border professional services.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="bi bi-robot"></i>
+                            </div>
+                            <h4 class="card-title mb-3">AI-Powered Regulatory Compliance</h4>
+                            <p class="card-text">Real-time interpretation and summarization of local legal, tax, and professional regulations across African nations, continuously updated from official sources.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Smart Contract Management</h4>
+                            <p class="card-text">Generation of dynamic, jurisdiction-specific smart contracts tailored to user transactions with integrated blockchain-based escrow functionality.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="bi bi-currency-exchange"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Digital Payment Integration</h4>
+                            <p class="card-text">Multi-currency wallets optimized for foreign exchange (FX) with integration to popular payment gateways such as Flutterwave, Chipper, and mobile money platforms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h4 class="card-title mb-3">User Verification & Trust</h4>
+                            <p class="card-text">Mandatory KYC verification process for all registered professional users with peer-review and reputation scoring system to verify credibility.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="bi bi-translate"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Multilingual Support</h4>
+                            <p class="card-text">Support for multiple African languages, particularly Swahili, French, Arabic, and English with dynamic user-interface localization.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Analytics Dashboard</h4>
+                            <p class="card-text">Comprehensive dashboard for tracking transaction status, compliance metrics, financial performance, and user interactions with real-time alerts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-5 my-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">System Architecture</h2>
+                    <p class="lead">Our platform employs a modular, microservices-based architecture designed for scalability, flexibility, and resilience.</p>
+                </div>
+            </div>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="mb-4">High-Level Architecture</h3>
+                    <p>The system is organized into several key layers:</p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item"><strong>Frontend Layer:</strong> Responsive web application and mobile apps with multilingual interfaces</li>
+                        <li class="list-group-item"><strong>API Gateway Layer:</strong> Central entry point for all client requests with authentication and routing</li>
+                        <li class="list-group-item"><strong>Microservices Layer:</strong> Core functional components including user management, AI compliance engine, smart contract service, and payment processing</li>
+                        <li class="list-group-item"><strong>Data Layer:</strong> Combination of relational databases, NoSQL databases, blockchain ledger, and search engine</li>
+                        <li class="list-group-item"><strong>Infrastructure Layer:</strong> Cloud services, security infrastructure, and monitoring systems</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <img src="https://miro.medium.com/max/1400/1*wiHJvdHBmk-SXBWRgYGPUQ.png" alt="System Architecture Diagram" class="architecture-img">
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <h3 class="mb-4">AI Compliance Engine</h3>
+                    <p>The AI-Powered Regulatory Compliance Engine is a cornerstone of the platform, designed to interpret and apply regulatory requirements across African jurisdictions.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Data Ingestion Layer:</strong> Collects regulatory information from official sources</li>
+                        <li class="list-group-item"><strong>NLP Pipeline:</strong> Processes regulatory text through extraction, classification, and entity recognition</li>
+                        <li class="list-group-item"><strong>Knowledge Graph:</strong> Organizes regulatory concepts with cross-jurisdictional mapping</li>
+                        <li class="list-group-item"><strong>Compliance Analysis Engine:</strong> Validates transactions against applicable regulations</li>
+                        <li class="list-group-item"><strong>Recommendation System:</strong> Provides personalized compliance guidance</li>
+                        <li class="list-group-item"><strong>Continuous Learning System:</strong> Improves accuracy through feedback loops</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="text-center">
+                        <img src="https://miro.medium.com/max/1400/1*KBGdMaL8PUAcCmGUHLag2g.png" alt="AI Compliance Engine Architecture" class="architecture-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-5 my-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Implementation Roadmap</h2>
+                    <p class="lead">Our phased approach ensures early delivery of value while managing complexity.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>Phase 1: Foundation (Months 1-3)</h4>
+                            <p>Core user management and authentication, basic regulatory data ingestion, simple smart contract templates, single language support (English).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>Phase 2: Core Functionality (Months 4-6)</h4>
+                            <p>AI compliance engine initial version, smart contract generation and execution, payment processing with major providers, multilingual support for primary languages.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>Phase 3: Advanced Features (Months 7-9)</h4>
+                            <p>Enhanced AI capabilities with learning, dispute resolution workflows, advanced analytics and reporting, additional payment methods and currencies.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>Phase 4: Optimization and Scale (Months 10-12)</h4>
+                            <p>Performance optimization for low-bandwidth areas, enhanced offline capabilities, additional language support, advanced security features.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Ready to Expand Your Professional Reach Across Africa?</h2>
+                    <p class="lead mb-5">Join us in transforming cross-border professional services throughout the continent.</p>
+                    <a href="#contact" class="btn btn-light btn-lg px-4 py-2">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 my-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="lead">Interested in learning more about our platform? Contact us today.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subject" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-4 py-2">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">AfriConnect</h4>
+                    <p>A full-stack digital platform using smart contracts and AI-powered compliance tools to enable seamless cross-border professional services throughout Africa.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Features</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="#features">AI Compliance</a></li>
+                        <li><a href="#features">Smart Contracts</a></li>
+                        <li><a href="#features">Payment Integration</a></li>
+                        <li><a href="#features">User Verification</a></li>
+                        <li><a href="#features">Multilingual Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Nairobi, Kenya</li>
+                        <li class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +254 123 456 789</li>
+                        <li class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@africonnect.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: rgba(255, 255, 255, 0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 AfriConnect. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> for African professionals</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
