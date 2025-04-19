@@ -541,19 +541,19 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <form>
+                    <form id="contactForm">
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control" placeholder="Subject" required>
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
                             </div>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-lg px-4 py-2">Send Message</button>
@@ -625,6 +625,8 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -666,6 +668,24 @@
                     }
                 }
             });
+        });
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('tyyCV9g6FoxoNQZ0s');
+        })();
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            emailjs.sendForm('service_0nr1jnb', 'template_dp8mqgr', this)
+                .then(function() {
+                    alert('Message sent!');
+                    document.getElementById('contactForm').reset();
+                }, function(error) {
+                    alert('Error sending message: ' + error.text);
+                });
         });
     </script>
 </body>
